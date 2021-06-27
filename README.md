@@ -40,4 +40,3 @@ python3 trim_and_concat.py \
   --stamps TIME_STAMPS_FILE_PATH \
   --output OUTPUT_VIDEO_PATH
 ```
-

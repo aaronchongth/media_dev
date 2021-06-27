@@ -28,6 +28,9 @@ def write_to_index_file(index_file, line):
 
 
 def concat(index_file, output_file):
+    # Concatenation is done this way due to an audio issue,
+    # https://github.com/kkroening/ffmpeg-python/issues/96
+    # Ideally I would like to use the python API.
     cmd = f'ffmpeg -f concat -safe 0 -i {index_file} -c copy {output_file}'
     result = subprocess.run(cmd, stdout=subprocess.PIPE, check=True, shell=True)
 
