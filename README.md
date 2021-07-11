@@ -40,3 +40,9 @@ python3 trim_and_concat.py \
   --stamps TIME_STAMPS_FILE_PATH \
   --output OUTPUT_VIDEO_PATH
 ```
+
+# Random `ffmpeg` notes,
+
+* Rotate arbitrary: `ffmpeg -i input.mp4 -vf "rotate=-3*PI/180" output.mp4`
+* Rotate fixed: `ffmpeg -i input.mp4 -vf "transpose=1" output.mp4`
+* Split basic: `ffmpeg -i input.mp4 -ss 00:00:00 -to 00:01:13.5 output.mp4`
