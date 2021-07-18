@@ -2,7 +2,6 @@
 
 import os
 import shutil
-import ffmpeg
 import argparse
 import subprocess
 
@@ -18,8 +17,9 @@ parser.add_argument('--output', '-o', type=str, required=True)
 
 
 def splice(file_name, start_time, end_time, output_name):
-    ffmpeg.input(
-        file_name, ss=start_time, to=end_time).output(output_name).run()
+    cmd = 'ffmpeg -i {} -ss {} -to {} -c copy {}'.format(
+        file_name, start_time, end_time, output_name)
+    result = subprocess.run(cmd, stdout=subprocess.PIPE, check=True, shell=True)
 
 
 def write_to_index_file(index_file, line):

@@ -20,7 +20,6 @@ cp time_ext.lua ~/snap/vlc/current/.local/share/vlc/lua/extensions/.
 cp time_intf.lua ~/snap/vlc/current/.local/share/vlc/lua/intf/.
 
 sudo apt install ffmpeg
-pip3 install ffmpeg-python
 ```
 
 # Trim and concatenate
@@ -43,6 +42,8 @@ python3 trim_and_concat.py \
 
 # Random `ffmpeg` notes,
 
+* Lossless rotate: `ffmpeg -i input.mp4 -c copy -metadata:s:v:0 rotate=180 output.mp4`
+* Cut without losing quality: `ffmpeg -i input.mp4 -ss {} -to {} -c copy output.mp4`
 * Rotate arbitrary: `ffmpeg -i input.mp4 -vf "rotate=-3*PI/180" output.mp4`
 * Rotate fixed: `ffmpeg -i input.mp4 -vf "transpose=1" output.mp4`
 * Split basic: `ffmpeg -i input.mp4 -ss 00:00:00 -to 00:01:13.5 output.mp4`
