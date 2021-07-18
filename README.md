@@ -47,3 +47,4 @@ python3 trim_and_concat.py \
 * Rotate arbitrary: `ffmpeg -i input.mp4 -vf "rotate=-3*PI/180" output.mp4`
 * Rotate fixed: `ffmpeg -i input.mp4 -vf "transpose=1" output.mp4`
 * Split basic: `ffmpeg -i input.mp4 -ss 00:00:00 -to 00:01:13.5 output.mp4`
+* Lossless encoding: `ffmpeg -i input.mp4 -codec:v libx264 -crf 0 -preset ultrafast STUFF output.mp4`

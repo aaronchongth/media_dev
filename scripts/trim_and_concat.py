@@ -17,7 +17,8 @@ parser.add_argument('--output', '-o', type=str, required=True)
 
 
 def splice(file_name, start_time, end_time, output_name):
-    cmd = 'ffmpeg -i {} -ss {} -to {} -c copy {}'.format(
+    # cmd = 'ffmpeg -i {} -ss {} -map_characters -1 -c:v libx264-c:a copy -crf 0 -to {} -c copy -avoid_negative_ts make_zero {}'.format(
+    cmd = 'ffmpeg -i {} -codec:v libx264 -crf 0 -preset ultrafast -ss {} -to {} {}'.format(
         file_name, start_time, end_time, output_name)
     result = subprocess.run(cmd, stdout=subprocess.PIPE, check=True, shell=True)
 
